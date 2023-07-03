@@ -1,4 +1,4 @@
-class Solution {
+class Solution {    // THis is a C++ solution
 public:
     int reverse(int x) {
         long num=abs(x);
