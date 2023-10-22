@@ -1,0 +1,8 @@
+int removeDuplicates(int* nums, int numsSize){
+    int k = numsSize > 0 ? 1 : 0;
+    for (int i = 1; i < numsSize; i++) {
+        if (nums[i] != nums[k - 1]) // Use help of *sorted array*
+            nums[k++] = nums[i];
+    }
+    return k;
+}
