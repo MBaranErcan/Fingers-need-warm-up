@@ -1,0 +1,17 @@
+// Compare method to sort the array in C using qsort.
+int compare( const void* a, const void* b)
+{
+int int_a = * ( (int*) a );
+int int_b = * ( (int*) b );
+
+// an easy expression for comparing
+return (int_a > int_b) - (int_a < int_b);
+}
+
+int maxProductDifference(int* nums, int numsSize){
+
+    // Sort the array
+    qsort(nums, numsSize, sizeof(int), compare);
+    // return the result
+    return ((nums[numsSize-1] * nums[numsSize-2]) - (nums[0] * nums[1]));
+}
