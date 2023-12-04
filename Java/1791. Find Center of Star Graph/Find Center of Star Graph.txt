@@ -1,0 +1,36 @@
+class Solution {
+    public int findCenter(int[][] edges) {
+        
+        // This is not the fastest aproach, but a true aproach for a undirected star graph.
+        int[] arr1 = edges[0];
+        int[] arr2 = edges[1];
+        
+        System.out.println(arr1.getClass().getName());
+
+        int res = findElement(arr1, arr2);
+
+        if (checkForAllGraph(edges, arr1[res]))
+            return (arr1[res]);
+        else return 0;
+
+    }
+
+    // This method singlehandedly finds the correct solution, yet i want to check for the whole graph.
+    int findElement(int[] arr1, int[] arr2){
+
+        if(arr1[0] == arr2[0]) return 0;
+        else if(arr1[0] == arr2[1]) return 0;
+        else return 1;
+    }
+
+    boolean checkForAllGraph(int[][] edges, int ans) {
+        int len = edges.length;
+
+        for (int i = 0; i < len; i++) {
+            if (!((edges[i][0] == ans) || (edges[i][1] == ans))) 
+                return false;
+        }
+        return true;
+    }
+
+}
