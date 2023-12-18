@@ -1,0 +1,32 @@
+class Solution {
+    public boolean repeatedSubstringPattern(String s) {
+    
+    String doubled = s + s;
+    String sub = doubled.substring(1, doubled.length() - 1);
+    
+    return sub.contains(s);
+    //Thanks to vanAmsen for this aproach!
+    /*
+The idea behind this approach is that if a string s can be constructed by repeating a   substring, then concatenating two copies of s together and removing the first and last         character would still contain s as a substring.    
+    */
+    }
+}
+
+/* ALTERNATIVE SOLUTION
+class Solution {
+    public boolean repeatedSubstringPattern(String s) {
+        int len = s.length();
+        for (int i = 1; i <= len / 2; i++) {
+            if (len % i == 0) {
+                String substring = s.substring(0, i);
+                StringBuilder repeated = new StringBuilder();
+                for (int j = 0; j < len / i; j++) {
+                    repeated.append(substring);
+                }
+                if (repeated.toString().equals(s)) return true;
+            }
+        }
+        return false;
+    }
+}
+*/
